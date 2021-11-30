@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/1966a3f118.js" crossorigin="anonymous"></script>
+  <style>
+    html{
+      box-sizing: border-box;
+    }
+    body{
+      font-family: 'Poppins', sans-serif;
+      height: 100vh;
+      overflow: hidden;
+      font-weight: 400;
+    }
+    .container{
+      position: relative;
+      min-height: 100vh;
+      overflow:hidden;
+    }
+    .row{
+      display:flex;
+      flex-wrap: wrap;
+      height: 100vh;
+    }
+    .col{
+      width:50%;
+    }
+    .align-center{
+      display:flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .flex-col{
+      flex-direction: column;
+    }
+    .form-wrapper{
+       width: 100%;
+       max-width: 28rem;
+    }
+    .form{
+      padding:1rem;
+      background-color: var(--white);
+      border-radius: 1.5rem;
+      width: 100%;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.35);
+      transition: 500ms ease-in-out;
+      transition-delay: 1s;
+    }
+    .input-group{
+      position: relative;
+      width: 76%;
+      margin: 1rem 0;
+
+    }
+    .input-group i{
+      position: absolute;
+      top:50%;
+      left:1rem;
+      transform: translateY(-50%);
+      font-size: 1.4rem;
+      color: var(--gray-2);
+    }
+    .input-group input{
+      width:100%;
+      padding: 1rem 3rem;
+      font-size: 1rem;
+      background-color: rgba(224, 224, 224, 0.904);
+      border-radius: .5rem;
+      border: .125rem solid white;
+      outline: none;
+    }
+    .input-group input:focus{
+      border: .125rem solid #1DA1F2;
+    }
+    .form button{
+      cursor: pointer;
+      width: 100%;
+      padding: 0.8rem 0;
+      border-radius: 0.5rem;
+      border: none;
+      background-color: #1DA1F2;
+      color: white;
+      font-size: 1.2rem;
+      outline: none;
+    }
+    .form p{
+      margin: 1rem 0;
+      font-size: .7rem;
+    }
+    .introduction{
+      font-size: 1.2rem;
+      color: #1DA1F2;
+    }
+  </style>
+  <title>HomePage</title>
+</head>
+<body>
+  <div class="container sign-up" id="container">
+    <div class="row">
+      <div class="col align-center flex-col sign-up">
+        <div class="form-wrapper align-center">
+          <form class="form sign-up" action="/users/register" method="POST">
+            <%- include ('./partials/messages') %>
+            <div class="introduction">
+              <span>Welcome to Bill Splitter</span><br>
+            </div>
+            <div class="input-group">
+              <i class="fas fa-user"></i>
+              <input type="name" name="name" placeholder="Name"
+                value="<%= typeof name != 'undefined' ? name : '' %>" />
+            </div>
+            <div class="input-group">
+              <i class="fas fa-envelope"></i>
+              <input type="email" name="email" placeholder="Email"
+                value="<%= typeof email != 'undefined' ? email : '' %>" />
+            </div>
+            <div class="input-group">
+              <i class="fas fa-lock"></i>
+              <input type="password" name="password" placeholder="Create Password"
+                value="<%= typeof password != 'undefined' ? password : '' %>" />
+            </div>
+            <div class="input-group">
+              <i class="fas fa-lock"></i>
+              <input type="password" name="password2" placeholder="Confirm Password"
+                value="<%= typeof password2 != 'undefined' ? password2 : '' %>" />
+            </div>
+            <button>Sign Up</button>
+            <p>
+              <span>Already have an account</span>
+              <b id="sign-in"><a href="/users/login">Sign In Here</a></b>
+            </p>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-10" style="margin-top: 300px;font-size: 1.3rem; font-weight: 400; color:#1DA1F2">
+        <p>Keep track of your shared expenses and balances<br> with roommates, trips, groups and family</p>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+  <!-- <h1>Register</h1>
+<%- include ('./partials/messages') %>
+<form action="/users/register" method="POST">
+<div>
+    <label for="name">Name</label>
+    <input
+      type="name"
+      name="name"
+      placeholder="Enter Name"
+      value="<%= typeof name != 'undefined' ? name : '' %>"
+    />
+  
+</div>
+<div>
+    <label for="email">Email</label>
+    <input
+      type="email"
+      name="email"
+      placeholder="Enter Email"
+      value="<%= typeof email != 'undefined' ? email : '' %>"
+    />
+  </div>
+  <div >
+    <label for="password">Password</label>
+    <input
+      type="password"
+      name="password"
+      placeholder="Create Password"
+      value="<%= typeof password != 'undefined' ? password : '' %>"
+    />
+  </div>
+  <div >
+    <label for="password2">Confirm Password</label>
+    <input
+      type="password"
+      name="password2"
+      placeholder="Confirm Password"
+      value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
+    />
+  </div>
+  <button type="submit" class="btn btn-primary btn-block">
+    Register
+  </button>
+</form>
+<p >Have An Account? <a href="/users/login">Login</a></p> -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
+
